@@ -10,12 +10,9 @@ import java.util.Observable;
 public class Prof extends Observable {
 	private String name;
 	private Date midtermDate;
-	private ArrayList<Student> students;
-	private TeachingAssistant ta;
 
 	public Prof(String aName) {
 		this.name = aName;
-		this.students = new ArrayList<Student>();
 	}
 
 	public Date getMidterm() {
@@ -46,34 +43,18 @@ public class Prof extends Observable {
 		this.setChanged();
 		this.notifyObservers(midtermDate);
 	}
-	
-	public void setTA(TeachingAssistant theTA){
-		this.ta = theTA;
-	}
-	
-	public void addStudent(Student s){
-		this.students.add(s);
-	}
-
 
 	public static void main(String[] args) {
 
 		Prof p = new Prof("Babak");
-		Student s = new Student("Homer");
-		Student s2 = new Student("Bart");
-		TeachingAssistant ta = new TeachingAssistant("Michael");
-	
-	
-		//p.addStudent(s);
-		//p.addStudent(s2);
-		//p.setTA(ta);
-		p.addObserver(ta);
-		p.addObserver(s2);
-		p.addObserver(s);
+		Student s = new Student("Homer", p);
+		Student s2 = new Student("Bart", p);
+		TeachingAssistant ta = new TeachingAssistant("Michael", p);
 	
 		Date midterm = new Date();
 		p.setMidterm(midterm);
 		
+		System.out.println();
 	
 		p.postponeMidterm(new Date(midterm.getTime() + 1000000000));
 
