@@ -10,12 +10,9 @@ import java.util.Observer;
 public class TeachingAssistant implements Observer{
 	private String name;
 	private Date midterm;
-	private Observable obs;
 
-	public TeachingAssistant(String aName, Observable p) {
+	public TeachingAssistant(String aName) {
 		this.name = aName;
-		this.obs = p;
-		this.obs.addObserver(this);
 	}
 
 	public String getName() {
