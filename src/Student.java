@@ -31,13 +31,11 @@ public class Student implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		if(this.midterm != null){
-			this.party((Date) arg);
+		if(this.midterm == (Date) arg || this.midterm == null){
+			this.study((Date) arg); 
 		}
 		else{
-			this.study((Date) arg);
+			this.party((Date) arg);
 		}
-		
 	}
 }

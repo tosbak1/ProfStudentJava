@@ -31,12 +31,11 @@ public class TeachingAssistant implements Observer{
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		if(this.midterm != null){
-			this.postpone((Date) arg1);
+		if(this.midterm == (Date) arg1 || this.midterm == null){
+			this.proctor((Date) arg1); 
 		}
 		else{
-			this.proctor((Date) arg1);
+			this.postpone((Date) arg1);
 		}
 		
 	}

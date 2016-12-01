@@ -24,21 +24,14 @@ public class Prof extends Observable {
 
 	public void setMidterm(Date date) {
 		this.midtermDate = date;
-/*		for(Student s: this.students){
-			s.study(date);
-		}
-		ta.proctor(date);
-*/		this.setChanged();
+		
+		this.setChanged();
 		this.notifyObservers(midtermDate);
 	}
 	
 	public void postponeMidterm(Date date){
 		this.midtermDate = date;
-/*		for(Student s: this.students){
-			s.party(date);
-		}
-		ta.postpone(date);
-	*/
+		
 		this.setChanged();
 		this.notifyObservers(midtermDate);
 	}
